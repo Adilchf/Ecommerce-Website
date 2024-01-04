@@ -22,6 +22,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('admin/css/material-dashboard.css?v=3.1.0') }}" rel="stylesheet">
+    <link href="{{ asset('admin/css/custom.css') }}" rel="stylesheet">
     
 </head>
 <body class="g-sidenav-show  bg-gray-200">
@@ -51,6 +52,17 @@
 <script src="{{ asset('admin/js/plugins/smooth-scrollbar.min.js') }}" defer></script>
 <script src="{{ asset('admin/js/plugins/chartjs.min.js') }}" defer></script>
 
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+@if(session('status'))
+<script>
+    swal({
+            title: "{{session('status')}}",
+            
+            icon: "success",
+            button: "OK",
+});
+</script>
+@endif
 @yield('scripts')
 
     

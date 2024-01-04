@@ -10,7 +10,8 @@ use App\Models\Category;
 class CategoryController extends Controller
 {
     public function index(){
-        return view('admin.category.index');
+        $category = Category::all();
+        return view('admin.category.index', compact('category'));
     }
     public function add(){
         return view('admin.category.add');
@@ -23,7 +24,7 @@ class CategoryController extends Controller
             $file = $request->file('image');
             $ext = $file->getClientOriginalExtension();
             $filename = time().'.'.$ext;
-            $file->move('assets/uploads/category'.$filename);
+            $file->move('assets/uploads/category/',$filename);
             $category->image = $filename;
         }
 
