@@ -20,6 +20,7 @@ class CreateCategoriesTable extends Migration
             $table->longText('description');
             $table->tinyInteger('status')->defaukt('0');
             $table->tinyInteger('popular')->default('0');
+            $table->string('image');
             $table->string('meta_title');
             $table->string('meta_desc');
             $table->string('meta_keywords');
