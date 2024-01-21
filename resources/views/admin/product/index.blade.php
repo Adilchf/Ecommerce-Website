@@ -22,7 +22,7 @@
                     @foreach($product as $item)
                     <tr>
                         <td>{{ $item->id }}</td>
-                        <td>{{ $item->cate_id }}</td>
+                        <td>{{ $item->category->name }}</td>
                         <td>{{ $item->name }}</td>
                         <td>{{ $item->selling_price }}</td>
                         <td><img src="{{ asset('/assets/uploads/product/'.$item->image)}}" class="cate-img" alt="Image here"></td>
