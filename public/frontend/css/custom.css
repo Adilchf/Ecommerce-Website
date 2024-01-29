@@ -4,11 +4,14 @@
   
 }
 
-.card{
-    width: 250px;
-    height: 250px;
-}
+
 
 .wlcm{
     margin-left: 20px;
+}
+
+.cate-img{
+    height:150px;
+    width: 150px;
+  
 }
