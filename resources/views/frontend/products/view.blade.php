@@ -14,7 +14,7 @@
 </div>
 
 <div class="container">
-    <div class="card shadow">
+    <div class="card shadow product_data">
         <div class="card-body">
             <div class="row">
                 <div class="col-md-4 border-right">
@@ -42,6 +42,7 @@
                     @endif
                     <div class="row mt-2">
                         <div class="col-md-2">
+                            <input type="hidden" value="{{$product->id}}" class="prod_id">
                             <label for="Quantity">Quantity</label>
                             <div class="input-group text-center mb-3">
                                 <button class="input-group-text decrement-btn">-</button>
@@ -52,7 +53,7 @@
                         <div class="col-md-10">
                             <br/>
                             <button type="button" class="btn btn-success me-3 float-start">Add to Wishlist</button>
-                            <button type="button" class="btn btn-primary me-3 float-start">Add to Cart</button>
+                            <button type="button" class="btn btn-primary me-3 addToCartBtn float-start">Add to Cart</button>
                         </div>
                     </div>
                 </div>
@@ -71,6 +72,30 @@
 @section('scripts')
 <script>
     $(document).ready(function(){
+        $('.addToCartBtn').click(function(e){
+                e.preventDefault()
+                var prod_id =$(this).closest('.product_data').find('.prod_id').val();
+                var prod_qty =$(this).closest('.product_data').find('.qty-input').val();
+
+                $.ajax({
+                    method: "POST",
+                    url: "/add-to-cart",
+                    data: {
+                        'product_id': product_id,
+                        'product_qty': product_qty,
+
+                    },
+                    success: function(responce){
+
+                    }
+                });
+            
+            
+            
+            })
+
+
+        
         $('.increment-btn').click(function(e){
             e.preventDefault();
 

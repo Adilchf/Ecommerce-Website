@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Frontend\FrontendController;
+use App\Http\Controllers\Frontend\CartController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,6 +19,10 @@ Route::get('category',[FrontendController::class,'category']);
 Route::get('view-category/{slug}',[FrontendController::class,'viewcategory']);
 Route::get('category/{cate_slug}/{prod_name}',[FrontendController::class,'productview']);
 Auth::routes();
+
+Route::middleware(['auth'])->group(function () {
+    Route::post('add-to-cart',[CartController::class,'addProduct']);
+    });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
